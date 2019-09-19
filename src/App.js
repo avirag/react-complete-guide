@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import Radium, { StyleRoot } from 'radium';
 import Person from "./Person/Person";
 import './App.css';
-
-
 
 const app = props => {
     const [personState, setPersonState] = useState({
@@ -46,11 +43,7 @@ const app = props => {
         font: 'inherit',
         border: '1px solid blue',
         padding: '8px',
-        cursor: 'pointer',
-        ':hover': {
-            backgroundColor: 'lightgreen',
-            color: 'black'
-        }
+        cursor: 'pointer'
     };
 
     let persons = null;
@@ -69,10 +62,6 @@ const app = props => {
         );
 
         style.backgroundColor = 'red';
-        style[':hover'] = {
-            backgroundColor: 'salmon',
-            color: 'black'
-        };
     }
 
     const classes = [];
@@ -85,19 +74,17 @@ const app = props => {
     }
 
     return (
-        <StyleRoot>
-            <div className="App">
-                <h2>React App</h2>
-                <p className={classes.join(' ')}>This is really working!</p>
-                <button
-                    style={style}
-                    onClick={togglePersonHandler}>
-                    Toggle Persons
-                </button>
-                {persons}
-            </div>
-        </StyleRoot>
+        <div className="App">
+            <h2>React App</h2>
+            <p className={classes.join(' ')}>This is really working!</p>
+            <button
+                style={style}
+                onClick={togglePersonHandler}>
+                Toggle Persons
+            </button>
+            {persons}
+        </div>
     );
 };
 
-export default Radium(app);
+export default app;
